@@ -14,13 +14,15 @@ app.use(express.urlencoded({ extended: true }))
 connectDB()
 // checkOverLoad()
 
-// = = = = = Demo = = = = =
-app.get('/', (req, res) => {
-  console.log(process.env.NODE_ENV)
-  return res.send('123')
-})
-// = = = = = = = = = = = = =
+// // = = = = = Demo = = = = =
+// app.get('/', (req, res) => {
+//   console.log(process.env.NODE_ENV)
+//   return res.send('123')
+// })
+// // = = = = = = = = = = = = =
 
 // handling error
+const errorHandler = require('./middlewares/error.handler')
+errorHandler(app)
 
 app.listen(8080, () => console.log('Server start post:: 8080'))
